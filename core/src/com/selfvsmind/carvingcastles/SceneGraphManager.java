@@ -72,9 +72,9 @@ public final class SceneGraphManager {
     }
 
     private static void loadDummyDefaults() {
-        addNodeToSelected(new FileHandle("data/spacesphere.obj"));
-        clearSelection();
-        addNodeToSelected(new FileHandle("data/ship.obj"));
+//        addNodeToSelected(new FileHandle("data/spacesphere.obj"));
+//        clearSelection();
+//        addNodeToSelected(new FileHandle("data/ship.obj"));
     }
 
     public static ModelResource3d getSelectedNode() {
