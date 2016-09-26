@@ -1,0 +1,16 @@
+{
+com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
+	castle: { imageUp: castle, up: dark-gray, down: light-blue }
+	3floppy: { imageUp: 3floppy, up: dark-gray, down: light-blue }
+	exec: { imageUp: exec, up: dark-gray, down: light-blue }
+	source_h: { imageUp: source_h, up: dark-gray, down: light-blue }
+	txt: { imageUp: txt, up: dark-gray, down: light-blue }
+	font: { imageUp: font, up: dark-gray, down: light-blue }
+	5floppy: { imageUp: 5floppy, up: dark-gray, down: light-blue }
+	cdimage: { imageUp: cdimage, up: dark-gray, down: light-blue }
+	cdrom: { imageUp: cdrom, up: dark-gray, down: light-blue }
+	colorscm: { imageUp: colorscm, up: dark-gray, down: light-blue }
+	document: { imageUp: document, up: dark-gray, down: light-blue }
+	source_py: { imageUp: source_py, up: dark-gray, down: light-blue }
+},
+}

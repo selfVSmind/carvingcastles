@@ -1,0 +1,264 @@
+
+uiskin.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+gray-with-blue-border
+  rotate: false
+  xy: 1, 23
+  size: 27, 34
+  orig: 27, 34
+  offset: 0, 0
+  index: -1
+1downarrow
+  rotate: false
+  xy: 30, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+1leftarrow
+  rotate: false
+  xy: 59, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+1rightarrow
+  rotate: false
+  xy: 88, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+1uparrow
+  rotate: false
+  xy: 117, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+3floppy
+  rotate: false
+  xy: 146, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+5floppy
+  rotate: false
+  xy: 175, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+apply
+  rotate: false
+  xy: 204, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+atlantikdesigner
+  rotate: false
+  xy: 233, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+blockdevice
+  rotate: false
+  xy: 262, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+button_cancel
+  rotate: false
+  xy: 291, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+button_ok
+  rotate: false
+  xy: 320, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+castle
+  rotate: false
+  xy: 349, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+cdimage
+  rotate: false
+  xy: 378, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+cdrom
+  rotate: false
+  xy: 407, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+colorscm
+  rotate: false
+  xy: 436, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+document
+  rotate: false
+  xy: 465, 30
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+exec
+  rotate: false
+  xy: 30, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+exit
+  rotate: false
+  xy: 59, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+fileclose
+  rotate: false
+  xy: 88, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+font
+  rotate: false
+  xy: 117, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+next
+  rotate: false
+  xy: 146, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+package_games
+  rotate: false
+  xy: 175, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_c
+  rotate: false
+  xy: 204, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_cpp
+  rotate: false
+  xy: 233, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_cs
+  rotate: false
+  xy: 262, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_h
+  rotate: false
+  xy: 291, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_java
+  rotate: false
+  xy: 320, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_moc
+  rotate: false
+  xy: 349, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+source_py
+  rotate: false
+  xy: 378, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+txt
+  rotate: false
+  xy: 407, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+view_tree
+  rotate: false
+  xy: 436, 1
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+dark-gray
+  rotate: false
+  xy: 494, 43
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+light-blue
+  rotate: false
+  xy: 1, 7
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+light-gray
+  rotate: false
+  xy: 465, 14
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+dark-blue
+  rotate: false
+  xy: 481, 15
+  size: 12, 13
+  orig: 12, 13
+  offset: 0, 0
+  index: -1
+red
+  rotate: false
+  xy: 17, 7
+  size: 10, 14
+  orig: 10, 14
+  offset: 0, 0
+  index: -1
