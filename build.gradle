@@ -14,6 +14,7 @@ allprojects {
     apply plugin: "idea"
 
     version = '1.0'
+
     ext {
         appName = "Carving Castles"
         gdxVersion = '1.9.3'
@@ -46,10 +47,10 @@ project(":desktop") {
 project(":core") {
     apply plugin: "java"
 
-
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.kotcrab.vis:vis-ui:1.1.1"
+        compile "org.python:jython-standalone:2.7.0"
     }
 }
 
