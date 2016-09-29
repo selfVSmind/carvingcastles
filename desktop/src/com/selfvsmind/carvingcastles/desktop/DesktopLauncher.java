@@ -1,12 +1,31 @@
+/**
+ *
+ * Created by Jason Lambert.
+ * http://jasonlambert.io
+ * jason@jasonlambert.io
+ *
+ * http://www.github.com/selfVSmind/carvingcastles
+ *
+ */
+
 package com.selfvsmind.carvingcastles.desktop;
 
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.selfvsmind.carvingcastles.CCLevelEditor;
+import com.selfvsmind.carvingcastles.jython.TestJythonType;
+import com.selfvsmind.carvingcastles.jython.JythonFactory;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
+		JythonFactory factory = new JythonFactory("TestJython", "TestJython");
+
+		TestJythonType example  = factory.create();
+		example.say_hello();
+
+
+
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
 		config.title = "Carving Castles";
