@@ -25,9 +25,11 @@ public class JythonFactory {
     public JythonFactory(String modulename, String classname) {
         PythonInterpreter interpreter = new PythonInterpreter(null, new PySystemState());
         PySystemState sys = interpreter.getSystemState();
-        String rootPath = System.getProperty("user.dir") + File.separator + "python";
-        System.out.println(rootPath);
-        sys.path.append(new PyString(rootPath));
+////        String workingPath = System.getProperty("user.dir") + File.separator + "python";
+//        String workingPath = PyObject.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+//        workingPath = "jar:file:" + workingPath + "!/python";
+//        System.out.println(workingPath);
+        sys.path.append(new PyString("python"));
         interpreter.exec("from " + modulename + " import " + classname);
         ExampleClass = interpreter.get(classname);
     }

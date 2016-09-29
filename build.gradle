@@ -34,6 +34,14 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java"
+    tasks.withType(Jar) {
+        destinationDir = file("$rootDir/build")
+    }
+
+    copy {
+        from "$rootDir/core/assets/python"
+        into "$rootDir/build/python"
+    }
 
     archivesBaseName = "CarvingCastles"
 
