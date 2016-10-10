@@ -13,20 +13,21 @@ package com.selfvsmind.carvingcastles;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.graphics.g3d.Environment;
-import com.badlogic.gdx.graphics.g3d.Model;
-import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.badlogic.gdx.graphics.g3d.ModelInstance;
+import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
+import com.badlogic.gdx.graphics.g3d.model.MeshPart;
+import com.badlogic.gdx.graphics.g3d.model.Node;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
+import com.badlogic.gdx.graphics.g3d.utils.MeshPartBuilder;
+import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.scenes.scene2d.ui.Tree;
 import com.badlogic.gdx.scenes.scene2d.utils.Selection;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.ui.widget.VisTree;
 import com.kotcrab.vis.ui.widget.file.StreamingFileChooserListener;
+import com.sun.glass.ui.SystemClipboard;
 
 import java.io.FileFilter;
 
@@ -68,13 +69,38 @@ public final class SceneGraphManager {
 
         loadDummyDefaults();
 
+        MeshPart part = instances.get(0).model.meshParts.get(0);
+
+        float[] vertices = new float[part.mesh.getNumVertices() * 3];
+        short[] indices = new short[part.mesh.getNumIndices()];
+        part.mesh.getVertices(vertices);
+        part.mesh.getIndices(indices);
+
+        //print out the vertices
+        for(int i = 0; i < vertices.length; i += 3) {
+            System.out.print(vertices[i] + "f, " + vertices[i+1] + "f, " + vertices[i+2] + "f, \n");
+//            System.out.print(vertices[i+3] + "f, " + vertices[i+4] + "f, " + vertices[i+5] + "f, \n");
+//            System.out.print(vertices[i+6] + "f, " + vertices[i+7] + "f, \n\n");
+        }
+
+        //print out the indices
+        System.out.println();
+        for(int i = 0; i < indices.length; i++) {
+            System.out.print(indices[i] + ", ");
+        }
+
+//        System.out.println(vertices.length);
+//        System.out.println(indices.length);
+
         return uiTree;
     }
 
     private static void loadDummyDefaults() {
-//        addNodeToSelected(new FileHandle("data/spacesphere.obj"));
+//        addNodeToSelected(new FileHandle("c:/testdata/cube.obj"));
 //        clearSelection();
-//        addNodeToSelected(new FileHandle("data/ship.obj"));
+//        addNodeToSelected(new FileHandle("c:/testdata/ship.obj"));
+//        clearSelection();
+        addNodeToSelected("triangle");
     }
 
     public static ModelResource3d getSelectedNode() {
@@ -97,6 +123,49 @@ public final class SceneGraphManager {
     private static void clearSelection() {
         Selection<Tree.Node> selection = uiTree.getSelection();
         selection.clear();
+    }
+
+    private static ModelResource3d addNodeToSelected(String name) {
+        ModelResource3d selectedNode = getSelectedNode();
+
+
+        Mesh mesh = new Mesh(true, 3, 3, new VertexAttribute(VertexAttributes.Usage.Position, 3, "a_position"));
+
+        mesh.setVertices(new float[] { -0.5f, -0.5f, 0,    //bottom-left
+                0.5f, -0.5f, 0,    //bottom-right
+                0, 0.5f, 0 });     //top
+        mesh.setIndices(new short[] { 0, 1, 2 });
+
+
+        ModelBuilder modelBuilder = new ModelBuilder();
+        modelBuilder.begin();
+        MeshPartBuilder meshBuilder;
+        meshBuilder = modelBuilder.part("part1", GL20.GL_TRIANGLES, VertexAttributes.Usage.Position, new Material());
+        meshBuilder.addMesh(mesh);
+        Node node = modelBuilder.node();
+        node.translation.set(10,0,0);
+        meshBuilder = modelBuilder.part("part2", GL20.GL_TRIANGLES, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal, new Material());
+        meshBuilder.sphere(5, 5, 5, 10, 10);
+        Model model = modelBuilder.end();
+
+
+        modelInstance = new ModelInstance(model);
+        instances.add(modelInstance);
+        ModelResource3d newNode = new ModelResource3d(name, name, modelInstance);
+
+        selectedNode.addChildNode(newNode);
+        if (selectedNode == rootNode) {
+            uiTreeRootNode.add(newNode.getTreeNode());
+            uiTreeRootNode.setExpanded(true);
+        }
+        else {
+            MyTreeWindowNode treeNode = selectedNode.getTreeNode();
+            treeNode.add(newNode.getTreeNode());
+            treeNode.setExpanded(true);
+        }
+
+        updateSelection(newNode.getTreeNode());
+        return newNode;
     }
 
     private static ModelResource3d addNodeToSelected(FileHandle file) {
@@ -124,7 +193,7 @@ public final class SceneGraphManager {
         return newNode;
     }
 
-    public static void n64ButtonClicked() {
+    public static void castleButtonClicked() {
         UiManager.chooser.setMultiSelectionEnabled(true);
         UiManager.chooser.setFileFilter(new FileFilter() {
             @Override

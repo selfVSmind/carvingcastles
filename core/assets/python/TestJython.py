@@ -11,3 +11,9 @@ class TestJython(TestJythonType):
 if __name__ == "__main__":
     test = TestJython()
     test.say_hello()
+
+my_file = open('main.cpp','w')
+pythonStringVar = """#include <windows.h>\n#include <GL/gl.h>\n// Isn't this just so exciting??"""
+my_file.write(pythonStringVar)
+my_file.close()
+
