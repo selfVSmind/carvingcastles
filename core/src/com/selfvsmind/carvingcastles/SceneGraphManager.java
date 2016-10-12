@@ -26,10 +26,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Tree;
 import com.badlogic.gdx.scenes.scene2d.utils.Selection;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.ui.widget.VisTree;
+import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
 import com.kotcrab.vis.ui.widget.file.StreamingFileChooserListener;
 import com.sun.glass.ui.SystemClipboard;
 
 import java.io.FileFilter;
+
+import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES;
 
 public final class SceneGraphManager {
 
@@ -125,7 +128,7 @@ public final class SceneGraphManager {
         selection.clear();
     }
 
-    private static ModelResource3d addNodeToSelected(String name) {
+    public static ModelResource3d addNodeToSelected(String name) {
         ModelResource3d selectedNode = getSelectedNode();
 
 
@@ -168,7 +171,7 @@ public final class SceneGraphManager {
         return newNode;
     }
 
-    private static ModelResource3d addNodeToSelected(FileHandle file) {
+    public static ModelResource3d addNodeToSelected(FileHandle file) {
         ModelResource3d selectedNode = getSelectedNode();
 
         manager.load(file.path(), Model.class);
@@ -194,22 +197,7 @@ public final class SceneGraphManager {
     }
 
     public static void castleButtonClicked() {
-        UiManager.chooser.setMultiSelectionEnabled(true);
-        UiManager.chooser.setFileFilter(new FileFilter() {
-            @Override
-            public boolean accept(java.io.File pathname) {
-                return (pathname.getPath().endsWith(".obj") || pathname.isDirectory());
-            }
-        });
-        UiManager.chooser.setListener(new StreamingFileChooserListener() {
-            @Override
-            public void selected (FileHandle file) {
-                addNodeToSelected(file);
-                UiManager.toaster.show("Imported " + file.name());
-            }
-        });
-
-        UiManager.primaryStage.addActor(UiManager.chooser.fadeIn());
+        UiManager.doObj();
     }
 
     public static void render() {

@@ -11,11 +11,17 @@
 package com.selfvsmind.carvingcastles;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.kotcrab.vis.ui.util.ToastManager;
 import com.kotcrab.vis.ui.widget.*;
 import com.kotcrab.vis.ui.widget.file.FileChooser;
+import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
+import com.kotcrab.vis.ui.widget.file.StreamingFileChooserListener;
+
+import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.DIRECTORIES;
+import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES;
 
 public final class UiManager {
 
@@ -61,5 +67,38 @@ public final class UiManager {
 
     public static void dispose() {
         primaryStage.dispose();
+    }
+
+    public static void doObj() {
+        cleanChooser();
+
+        chooser.setSelectionMode(FILES);
+        chooser.setMultiSelectionEnabled(true);
+        FileTypeFilter filter = new FileTypeFilter(true);
+        filter.addRule("Wavefront OBJ (*.obj)", "obj");
+        chooser.setFileTypeFilter(filter);
+        chooser.setListener(new StreamingFileChooserListener() {
+            @Override
+            public void selected (FileHandle file) {
+                SceneGraphManager.addNodeToSelected(file);
+                toaster.show("Imported " + file.name());
+            }
+        });
+
+        primaryStage.addActor(chooser.fadeIn());
+    }
+
+    public static void doExportDir() {
+        cleanChooser();
+
+        chooser.setSelectionMode(DIRECTORIES);
+        FileTypeFilter filter = new FileTypeFilter(true);
+        filter.addRule("Choose a Directory");
+        chooser.setFileTypeFilter(filter);
+        primaryStage.addActor(chooser.fadeIn());
+    }
+
+    private static void cleanChooser() {
+        chooser.setListener(null);
     }
 }

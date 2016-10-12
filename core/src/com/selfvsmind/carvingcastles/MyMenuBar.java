@@ -16,6 +16,10 @@ import com.kotcrab.vis.ui.widget.Menu;
 import com.kotcrab.vis.ui.widget.MenuBar;
 import com.kotcrab.vis.ui.widget.MenuItem;
 import com.kotcrab.vis.ui.widget.PopupMenu;
+import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
+
+import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.DIRECTORIES;
+import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES;
 
 public class MyMenuBar extends MenuBar {
 
@@ -29,14 +33,22 @@ public class MyMenuBar extends MenuBar {
         importObj.addListener(new ChangeListener() {
             @Override
             public void changed (ChangeListener.ChangeEvent event, Actor actor) {
-                UiManager.primaryStage.addActor(UiManager.chooser.fadeIn());
+                UiManager.doObj();
             }
         });
 
         menu.addItem(importObj);
         MenuItem export = new MenuItem("Export");
+
         PopupMenu exportSubMenu = new PopupMenu();
         exportSubMenu.addItem(new MenuItem("Custom Export Format"));
+        exportSubMenu.addListener(new ChangeListener() {
+            @Override
+            public void changed (ChangeListener.ChangeEvent event, Actor actor) {
+                UiManager.doExportDir();
+            }
+        });
+
         export.setSubMenu(exportSubMenu);
         menu.addItem(export);
         menu.addSeparator();
