@@ -40,12 +40,9 @@ public final class SceneGraphManager {
     private static VisTree uiTree;
     private static MyTreeWindowNode uiTreeRootNode;
     private static ModelResource3d rootNode;
-    private static Environment environment;
     private static ModelBatch modelBatch;
     private static Model model;
     private static ModelInstance modelInstance;
-    private static PerspectiveCamera cam;
-    private static CameraInputController camController;
     private static Array<ModelInstance> instances = new Array<ModelInstance>();
 
     public static VisTree init() {
@@ -55,20 +52,7 @@ public final class SceneGraphManager {
         uiTreeRootNode = rootNode.getTreeNode();
         uiTree.add(uiTreeRootNode);
 
-        environment = new Environment();
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
-        environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
-
         modelBatch = new ModelBatch();
-
-        cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        cam.position.set(1f, 1f, 1f);
-        cam.lookAt(0,0,0);
-        cam.near = 1f;
-        cam.far = 300f;
-        cam.update();
-
-        camController = new CameraInputController(cam);
 
         loadDummyDefaults();
 
@@ -200,21 +184,17 @@ public final class SceneGraphManager {
         UiManager.doObj();
     }
 
-    public static void render() {
-        camController.update();
+    public static ModelBatch getModelBatch() {
+        return modelBatch;
+    }
 
-        modelBatch.begin(cam);
-        modelBatch.render(instances, environment);
-        modelBatch.end();
+    public static Array<ModelInstance> getInstances() {
+        return instances;
     }
 
     public static void dispose() {
         modelBatch.dispose();
         instances.clear();
         manager.dispose();
-    }
-
-    public static Camera getCam() {
-        return cam;
     }
 }

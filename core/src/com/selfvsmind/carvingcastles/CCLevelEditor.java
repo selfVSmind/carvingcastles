@@ -15,6 +15,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 
+import com.badlogic.gdx.graphics.g3d.Renderable;
 import com.kotcrab.vis.ui.VisUI;
 //import com.kotcrab.vis.ui.util.ToastManager;
 import com.kotcrab.vis.ui.widget.file.FileChooser;
@@ -28,6 +29,7 @@ public class CCLevelEditor implements ApplicationListener {
         FileChooser.setFavoritesPrefsName("com.selfvsmind.carvingcastles");
 
         UiManager.init();
+        Renderer3D.init();
 
 //        InputMultiplexer multiplexer = new InputMultiplexer();
 //        multiplexer.addProcessor(UiManager.primaryStage);
@@ -39,19 +41,19 @@ public class CCLevelEditor implements ApplicationListener {
 
     @Override
     public void render() {
-
-        Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-
-        SceneGraphManager.render();
+        //first draw the 3D world
+        Renderer3D.render();
+        //then draw the 2D UI overlay
         UiManager.render();
     }
 
     @Override
     public void dispose() {
+        //My stuff
         SceneGraphManager.dispose();
         UiManager.dispose();
 
+        //External Libs
         VisUI.dispose();
     }
 
