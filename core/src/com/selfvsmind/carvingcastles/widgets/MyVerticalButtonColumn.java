@@ -8,14 +8,15 @@
  *
  */
 
-package com.selfvsmind.carvingcastles;
+package com.selfvsmind.carvingcastles.widgets;
 
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.kotcrab.vis.ui.layout.HorizontalFlowGroup;
+import com.selfvsmind.carvingcastles.UiManager;
 
 public class MyVerticalButtonColumn extends HorizontalFlowGroup {
 
-    MyVerticalButtonColumn() {
+    public MyVerticalButtonColumn() {
         super();
         
 //        this.setFillParent(true);

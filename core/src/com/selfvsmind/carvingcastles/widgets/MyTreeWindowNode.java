@@ -8,10 +8,11 @@
  *
  */
 
-package com.selfvsmind.carvingcastles;
+package com.selfvsmind.carvingcastles.widgets;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Tree;
+import com.selfvsmind.carvingcastles.ModelResource3d;
 
 public class MyTreeWindowNode extends Tree.Node {
     private ModelResource3d myNode;

@@ -8,7 +8,7 @@
  *
  */
 
-package com.selfvsmind.carvingcastles;
+package com.selfvsmind.carvingcastles.widgets;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -17,6 +17,8 @@ import com.kotcrab.vis.ui.VisUI;
 import com.kotcrab.vis.ui.util.TableUtils;
 import com.kotcrab.vis.ui.widget.VisTree;
 import com.kotcrab.vis.ui.widget.VisWindow;
+import com.selfvsmind.carvingcastles.SceneGraphManager;
+import com.selfvsmind.carvingcastles.UiManager;
 
 public class MyTreeWindow extends VisWindow {
 

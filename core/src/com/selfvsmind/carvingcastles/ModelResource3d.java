@@ -13,6 +13,7 @@ package com.selfvsmind.carvingcastles;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.math.Matrix4;
 import com.kotcrab.vis.ui.widget.VisLabel;
+import com.selfvsmind.carvingcastles.widgets.MyTreeWindowNode;
 
 import java.util.ArrayList;
 

@@ -8,7 +8,7 @@
  *
  */
 
-package com.selfvsmind.carvingcastles;
+package com.selfvsmind.carvingcastles.widgets;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -17,6 +17,7 @@ import com.kotcrab.vis.ui.widget.MenuBar;
 import com.kotcrab.vis.ui.widget.MenuItem;
 import com.kotcrab.vis.ui.widget.PopupMenu;
 import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
+import com.selfvsmind.carvingcastles.UiManager;
 
 import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.DIRECTORIES;
 import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES;
@@ -25,7 +26,7 @@ public class MyMenuBar extends MenuBar {
 
     private static Menu menu;
 
-    MyMenuBar () {
+    public MyMenuBar () {
         super();
 
         menu = new Menu("File");

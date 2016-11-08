@@ -10,29 +10,19 @@
 
 package com.selfvsmind.carvingcastles;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g3d.*;
-import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.model.MeshPart;
 import com.badlogic.gdx.graphics.g3d.model.Node;
-import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.MeshPartBuilder;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.scenes.scene2d.ui.Tree;
 import com.badlogic.gdx.scenes.scene2d.utils.Selection;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.ui.widget.VisTree;
-import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
-import com.kotcrab.vis.ui.widget.file.StreamingFileChooserListener;
-import com.sun.glass.ui.SystemClipboard;
-
-import java.io.FileFilter;
-
-import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES;
+import com.selfvsmind.carvingcastles.widgets.MyTreeWindowNode;
 
 public final class SceneGraphManager {
 
