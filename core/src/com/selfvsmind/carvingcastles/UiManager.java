@@ -28,8 +28,6 @@ import static com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES;
 
 public final class UiManager {
 
-    private static VisTable table;
-
     public static Skin uiSkin;
     public static Stage primaryStage;
     public static MenuBar menuBar;
@@ -51,7 +49,7 @@ public final class UiManager {
 
         //the menubar won't fill up the width of the window by itself
         //so here we embed it in a table and set that table to be drawn at the top of the window
-        table = new VisTable();
+        VisTable table = new VisTable();
         table.setFillParent(true);
         table.add(menuBar.getTable()).fillX().expandX().colspan(Gdx.graphics.getWidth()).row();
         table.top();
