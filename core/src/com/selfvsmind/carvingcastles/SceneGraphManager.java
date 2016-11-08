@@ -118,7 +118,8 @@ public final class SceneGraphManager {
 
         Mesh mesh = new Mesh(true, 3, 3, new VertexAttribute(VertexAttributes.Usage.Position, 3, "a_position"));
 
-        mesh.setVertices(new float[] { -0.5f, -0.5f, 0,    //bottom-left
+        mesh.setVertices(new float[] {
+                -0.5f, -0.5f, 0,    //bottom-left
                 0.5f, -0.5f, 0,    //bottom-right
                 0, 0.5f, 0 });     //top
         mesh.setIndices(new short[] { 0, 1, 2 });
@@ -178,10 +179,6 @@ public final class SceneGraphManager {
 
         updateSelection(newNode.getTreeNode());
         return newNode;
-    }
-
-    public static void castleButtonClicked() {
-        UiManager.doObj();
     }
 
     public static ModelBatch getModelBatch() {

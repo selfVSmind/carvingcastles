@@ -39,7 +39,7 @@ public class MyTreeWindow extends VisWindow {
         castleButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-            SceneGraphManager.castleButtonClicked();
+            UiManager.importObj();
             }
         });
         this.add(castleButton.pad(4));

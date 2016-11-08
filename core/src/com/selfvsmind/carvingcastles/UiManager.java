@@ -69,7 +69,7 @@ public final class UiManager {
         primaryStage.dispose();
     }
 
-    public static void doObj() {
+    public static void importObj() {
         cleanChooser();
 
         chooser.setSelectionMode(FILES);

@@ -33,7 +33,7 @@ public class MyMenuBar extends MenuBar {
         importObj.addListener(new ChangeListener() {
             @Override
             public void changed (ChangeListener.ChangeEvent event, Actor actor) {
-                UiManager.doObj();
+                UiManager.importObj();
             }
         });
 
