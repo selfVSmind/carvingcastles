@@ -39,10 +39,10 @@ public final class UiManager {
         uiSkin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         primaryStage = new Stage();
         toaster = new ToastManager(primaryStage);
-        getEverythingSetUp();
+        initializeWidgets();
     }
 
-    private static void getEverythingSetUp() {
+    private static void initializeWidgets() {
         //this is the bar at the top of screen with things like 'file' and 'help'
         menuBar = new MyMenuBar();
 
