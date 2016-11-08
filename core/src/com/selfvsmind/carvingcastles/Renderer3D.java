@@ -39,15 +39,16 @@ public class Renderer3D {
     }
     public static void render() {
 
+        //the setup
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+        camController.update();
 
+        //the rendering
         renderSceneGraph();
     }
 
     private static void renderSceneGraph() {
-        camController.update();
-
         ModelBatch modelBatch = SceneGraphManager.getModelBatch();
         modelBatch.begin(cam);
         modelBatch.render(SceneGraphManager.getInstances(), environment);
