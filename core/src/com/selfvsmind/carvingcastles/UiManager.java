@@ -31,7 +31,7 @@ public final class UiManager {
     public static Skin uiSkin;
     public static Stage primaryStage;
     public static MenuBar menuBar;
-    public static MyTreeWindow sceneGraphTreeWindow;
+    public static MyTreeWindow myTreeWindow;
     public static ToastManager toaster;
 
     final public static FileChooser chooser = new FileChooser(FileChooser.Mode.OPEN);
@@ -60,8 +60,8 @@ public final class UiManager {
         table.row();
         table.add(new MyVerticalButtonColumn());
 
-        sceneGraphTreeWindow = new MyTreeWindow();
-        primaryStage.addActor(sceneGraphTreeWindow);
+        myTreeWindow = new MyTreeWindow();
+        primaryStage.addActor(myTreeWindow);
     }
 
     public static void render() {
