@@ -43,16 +43,19 @@ public final class UiManager {
     }
 
     private static void getEverythingSetUp() {
+        //this is the bar at the top of screen with things like 'file' and 'help'
         menuBar = new MyMenuBar();
 
+        //the menubar won't fill up the width of the window by itself
+        //so here we embed it in a table and set that table to be drawn at the top of the window
         table = new VisTable();
         table.setFillParent(true);
-//        table.add(menuBar.getTable()).fillX().expandX().row();
         table.add(menuBar.getTable()).fillX().expandX().colspan(Gdx.graphics.getWidth()).row();
-//        table.add().expandX().fill();
         table.top();
         primaryStage.addActor(table);
 
+        //here we're setting up the vertical row of buttons of the left side
+        //later they will actually do things like rotate, scale, that sort of thing
         table.row();
         table.add(new MyVerticalButtonColumn());
 
@@ -61,6 +64,7 @@ public final class UiManager {
     }
 
     public static void render() {
+        //rendering for 2D user interface starts here
         primaryStage.act(Gdx.graphics.getDeltaTime());
         primaryStage.draw();
     }
@@ -89,8 +93,10 @@ public final class UiManager {
     }
 
     public static void doExportDir() {
+        //clear out the previous fileListener
         cleanChooser();
 
+        //select directories only
         chooser.setSelectionMode(DIRECTORIES);
         FileTypeFilter filter = new FileTypeFilter(true);
         filter.addRule("Choose a Directory");
